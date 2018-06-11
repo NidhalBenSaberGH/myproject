@@ -56,16 +56,21 @@
             <canvas id="canvas2" height="280" width="600"></canvas>
 
             <script>
-                
+                var ColorArray = []
                 var url = "{{url('admin/likes/chart2')}}";
                 var Datevideo = [];
                 var Likes = [];
+                var colortab=[];
+
                 $(document).ready(function(){
                     $.get(url, function(response){
                         response.forEach(function(data){
                             Datevideo.push(data.date);
                             Likes.push(data.likes);
+                            colortab.push("rgb(" +  Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) + ")");
                         });
+                        //var colortab = ["Red","Blue","Green","Yellow","Pink","Grey","Orange","Purple","DarkCyan","Tan","Chartreuse"];
+                        console.log(colortab);
                         var ctx = document.getElementById("canvas2").getContext('2d');
                         var myChart = new Chart(ctx, {
                             type: 'bar',
@@ -74,7 +79,8 @@
                                 datasets: [{
                                     label: 'Likes by upload date',
                                     data: Likes,
-                                    borderWidth: 1
+                                    borderWidth: 1,
+                                    backgroundColor: colortab
                                 }]
                             },
                             options: {
@@ -84,10 +90,16 @@
                                             beginAtZero:true
                                         }
                                     }],
-
                                 }
                             }
                         });
+                        var dynamicColors = function() {
+                            var r = Math.floor(Math.random() * 255);
+                            var g = Math.floor(Math.random() * 255);
+                            var b = Math.floor(Math.random() * 255);
+                            return "rgb(" + r + "," + g + "," + b + ")";
+                        }
+
                     });
                 });
             </script>
