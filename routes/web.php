@@ -26,18 +26,28 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('/views', ['uses' => 'Admin\ViewsController@index', 'as' => 'views.index']);
     Route::get('/views/chart', ['uses' => 'Admin\ViewsController@chart', 'as' => 'views.chart']);
-    Route::get('/views/chart2', ['uses' => 'Admin\ViewsController@chart2', 'as' => 'views.chart2']);
+
 
     Route::get('/likes', ['uses' => 'Admin\LikesController@index', 'as' =>'likes.index']);
     Route::get('/likes/chart', ['uses' => 'Admin\LikesController@chart', 'as' => 'likes.chart']);
-    Route::get('/likes/chart2', ['uses' => 'Admin\LikesController@chart2', 'as' => 'likes.chart2']);
+
 
     Route::get('/dislikes', ['uses' => 'Admin\DislikesController@index', 'as' => 'dislikes.index']);
-    Route::get('/comment_total', ['uses' => 'Admin\comment_totalController@index', 'as' => 'comment_total.index']);
-    Route::get('/categories', ['uses' => 'Admin\categoriesController@index', 'as' => 'categories.index']);
-    Route::get('/channels', ['uses' => 'Admin\channelsController@index', 'as' => 'channels.index']);
+    Route::get('/dislikes/chart', ['uses' => 'Admin\DislikesController@chart', 'as' => 'dislikes.chart']);
 
-    Route::get('/comment_likes', ['uses' => 'Admin\comment_likesController@index', 'as' => 'comment_likes.index']);
-    Route::get('/comment_replies', ['uses' => 'Admin\comment_repliesController@index', 'as' => 'comment_replies.index']);
- 
+
+    Route::get('/comment_total', ['uses' => 'Admin\Comment_totalController@index', 'as' => 'comment_total.index']);
+    Route::get('/comment_total/chart', ['uses' => 'Admin\Comment_totalController@chart', 'as' => 'comment_total.chart']);
+
+    Route::get('/categories', ['uses' => 'Admin\categoriesController@index', 'as' => 'categories.index']);
+    Route::get('/categories/chart', ['uses' => 'Admin\categoriesController@chart', 'as' => 'categories.chart']);
+
+    Route::get('/channels', ['uses' => 'Admin\ChannelsController@index', 'as' => 'channels.index']);
+    Route::get('/channels/chart', ['uses' => 'Admin\channelsController@chart', 'as' => 'channels.chart']);
+
+    Route::get('/comment_likes', ['uses' => 'Admin\Comment_likesController@index', 'as' => 'comment_likes.index']);
+    Route::get('/comment_likes/chart', ['uses' => 'Admin\Comment_likesController@chart', 'as' => 'comment_likes.chart']);
+
+    Route::get('/comment_replies', ['uses' => 'Admin\Comment_repliesController@index', 'as' => 'comment_replies.index']);
+    Route::get('/comment_replies/chart', ['uses' => 'Admin\Comment_repliesController@chart', 'as' => 'comment_replies.chart']);
 });

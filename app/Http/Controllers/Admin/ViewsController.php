@@ -29,13 +29,4 @@ class ViewsController extends Controller
             ->take(10)->get();
         return response()->json($result);
     }
-
-    public function chart2()
-    {
-        $result = DB::table('videos')
-            ->orderBy('views', 'DESC')
-            ->take(10)->get();
-        return response()->json($result);
-    }
-
 }
