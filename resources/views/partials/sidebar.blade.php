@@ -149,7 +149,12 @@
 
             </li>@endcan
 
-            
+            <li>@can('upload_access')
+                <a href="{{ route('admin.upload.create') }}">
+                    <i class="fa fa-upload"></i>
+                    <span class="title">@lang('quickadmin.upload.title')</span>
+                </a>@endcan
+            </li>
 
             
 

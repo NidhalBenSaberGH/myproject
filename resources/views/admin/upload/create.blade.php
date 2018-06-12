@@ -1,0 +1,25 @@
+@extends('layouts.app')
+
+@section('content')
+    <h3 class="page-title">Upload CSV file</h3>
+    <div class="modal-body">
+    <div class="row">
+        <div class="col-sm-9">
+
+            {!! Form::open(['method'=>'POST', 'action'=>'Admin\UploadController@store', 'files'=>true])  !!}
+            {{ csrf_field() }}
+
+            <div class="form-group">
+                {!! Form::label('csvfile', 'CSV File:') !!}
+                {!! Form::file('csvfile', null, [ 'class'=>'form-control' ]) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::submit('Upload', ['class'=>'btn btn-primary']) !!}
+            </div>
+            {!! Form::close() !!}
+
+        </div>
+    </div>
+
+</div>
+@stop

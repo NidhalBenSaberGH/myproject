@@ -50,4 +50,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('/comment_replies', ['uses' => 'Admin\Comment_repliesController@index', 'as' => 'comment_replies.index']);
     Route::get('/comment_replies/chart', ['uses' => 'Admin\Comment_repliesController@chart', 'as' => 'comment_replies.chart']);
+
+    Route::get('/upload', ['uses' => 'Admin\UploadController@create', 'as' => 'upload.create']);
+    Route::post('/upload/store', ['uses' => 'Admin\UploadController@store', 'as' => 'upload.store']);
+
 });

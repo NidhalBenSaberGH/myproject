@@ -8,6 +8,11 @@
 
                 <div class="panel-body">
                     @lang('quickadmin.qa_dashboard_text')
+
+                    @if(Session::has('file_uploaded'))
+                        <br>
+                        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('file_uploaded') }}</p>
+                    @endif
                 </div>
             </div>
         </div>
