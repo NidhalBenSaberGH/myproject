@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UploadRequest;
+use App\Jobs\ImportCSVJob;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Artisan;
@@ -38,11 +39,33 @@ class UploadController extends Controller
      */
     public function store(UploadRequest $request)
     {
+        if ($request->post('type') == "video") {
+            $command = 'kpeiz:import-videos';
+        }
+        elseif ($request->post('type') == 'comment') {
+            $command = 'kpeiz:import-comments';
+        }
         $file = $request->file('csvfile');
+        if (!isset($file)) {
+            Session::flush('file_uploaded', 'No file uploaded.');
+            return redirect();
+        }
+
         $csvpath = $file->getRealPath();
-        //Artisan::call('kpeiz:import-videos',['csvPath' => $csvpath]);
-        Session::flash('file_uploaded', 'the file has been uploaded successfully');
-        //return redirect('/admin/home');
+
+        ImportCSVJob::dispatch($request->post('type'), $csvpath)->onQueue('default');
+
+
+        /*$call = Artisan::queue($command,[
+            'csvPath' => $csvpath
+        ]);*/
+        $call = 0;
+        if ($call !== 0)
+            Session::flush('file_uploaded', 'Error while uploading csv file.');
+        else
+            Session::flash('file_uploaded', 'CSV file uploaded successfully and is processing, please wait...');
+
+        return redirect('/admin/home');
     }
 
     /**

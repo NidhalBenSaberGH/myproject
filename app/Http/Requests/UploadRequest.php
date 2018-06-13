@@ -23,6 +23,6 @@ class UploadRequest extends FormRequest
      */
     public function rules()
     {
-        return ['csvfile' => 'required'];
+        return ['csvfile' => 'required|file'];
     }
 }
