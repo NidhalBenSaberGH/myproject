@@ -28,13 +28,18 @@
                             data: {
                                 labels:Title,
                                 datasets: [{
-                                    label: 'Total comment by Video title',
+                                    label: 'Total comment',
                                     data: Comment_total,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 commented videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {
@@ -78,13 +83,18 @@
                             data: {
                                 labels:Datevideo,
                                 datasets: [{
-                                    label: 'Total comment by upload date',
+                                    label: 'Total comment',
                                     data: Comment_total,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 commented videos by upload date'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

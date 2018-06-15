@@ -20,8 +20,8 @@ class ChannelsController extends Controller
     {
         $result = DB::table('videos')
             ->select(DB::raw('count(*) as Count_videos, channel_title'))
-            ->groupBy('channel_title')
-            ->take(10)->get();
+            ->groupBy('channel_title')->orderByDesc('Count_videos')
+            ->take(100)->get();
 
         return response()->json($result);
     }

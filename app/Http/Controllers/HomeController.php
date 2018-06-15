@@ -26,4 +26,23 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function datatable()
+    {
+        $data =
+        [
+            'video_id' => 'video_id',
+            'title' => 'title',
+            'channel_title' => 'channel_title',
+            'category_id' => 'category_id',
+            'tags' => 'tags',
+            'views' => 'views',
+            'likes' => 'likes',
+            'dislikes' => 'dislikes',
+            'comment_total' => 'comment_total',
+            'thumbnail_link' => 'thumbnail_link',
+            'date' => 'date'
+        ];
+
+    }
 }

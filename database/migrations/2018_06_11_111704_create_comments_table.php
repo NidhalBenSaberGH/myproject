@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('video_id');
+            $table->string('video_id')->index();
             $table->text('comment_text');
             $table->integer('likes');
             $table->integer('replies');

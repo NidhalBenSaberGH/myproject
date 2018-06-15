@@ -30,13 +30,17 @@
                             data: {
                                 labels:Categories,
                                 datasets: [{
-                                    label: ' Videos by category ID',
                                     data: countVideos,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 videos categories (Category ID : Total videos)'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

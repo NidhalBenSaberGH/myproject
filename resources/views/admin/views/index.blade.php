@@ -28,13 +28,18 @@
                             data: {
                                 labels:Title,
                                 datasets: [{
-                                    label: 'Views by Video title',
+
                                     data: Views,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 viewed videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {
@@ -59,7 +64,7 @@
 
         </div>
 
-
+        <br><br><br>
         <div class="col-md-10">
             <canvas id="canvas2" height="280" width="600"></canvas>
 
@@ -84,6 +89,11 @@
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 viewed videos by upload date'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

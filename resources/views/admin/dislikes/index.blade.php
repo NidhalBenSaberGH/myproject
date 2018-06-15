@@ -31,15 +31,20 @@
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels:Title,
+                                labels: Title,
                                 datasets: [{
-                                    label: 'Dislikes by video title',
+                                    label: 'Dislikes',
                                     data: Dislikes,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 disliked videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {
@@ -78,21 +83,26 @@
                             data: {
                                 labels:Title,
                                 datasets: [{
-                                    label: 'Likes by video title',
+                                    label: 'Likes ',
                                     data: Likes,
                                     borderWidth: 1,
-                                    backgroundColor: "Aqua"
+                                    borderColor: "Blue"
                                 },
                                     {
 
-                                        label: 'Dislikes by video title',
+                                        label: 'Dislikes ',
                                         data: Dislikes,
                                         borderWidth: 1,
-                                        backgroundColor: "Fuchsia",
+                                        borderColor: "Fuchsia",
                                         type: 'line'
                                     }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 liked/disliked videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

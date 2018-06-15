@@ -35,6 +35,11 @@
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 liked videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {
@@ -85,6 +90,11 @@
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Most 10 liked videos by upload date'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

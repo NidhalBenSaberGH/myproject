@@ -26,17 +26,22 @@
                         });
                         var ctx = document.getElementById("canvas").getContext('2d');
                         var myChart = new Chart(ctx, {
-                            type: 'pie',
+                            type: 'line',
                             data: {
                                 labels:Channels,
                                 datasets: [{
-                                    label: ' Videos by Channels',
+                                    label: 'Total videos',
                                     data: countVideos,
                                     borderWidth: 1,
-                                    backgroundColor: colortab
+                                    borderColor: "blue"
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Top 100 Channels by  total Videos'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {
