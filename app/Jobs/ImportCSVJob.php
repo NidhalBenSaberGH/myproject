@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class ImportCSVJob implements ShouldQueue
 {
@@ -18,19 +19,21 @@ class ImportCSVJob implements ShouldQueue
      */
     private $csvFilePath;
 
+
     /**
-     * @var string
+     * @var String
      */
-    private $type;
+    private  $command;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($type, $csvFilePath)
+    public function __construct($command, $csvFilePath)
     {
         $this->csvFilePath = $csvFilePath;
-        $this->type = $type;
+        $this->command = $command;
     }
 
     /**
@@ -40,6 +43,8 @@ class ImportCSVJob implements ShouldQueue
      */
     public function handle()
     {
-        Artisan::call('kpeiz:import-videos', ['csvPath' => $this->csvFilePath]);
+        Log::debug('Upload file Running command');
+
+        Artisan::call($this->command, ['csvPath' => $this->csvFilePath]);
     }
 }

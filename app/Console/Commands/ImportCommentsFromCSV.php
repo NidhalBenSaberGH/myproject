@@ -3,6 +3,7 @@ namespace App\Console\Commands;
 use App\Comment;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ImportCommentsFromCSV extends Command
 {
@@ -34,14 +35,15 @@ class ImportCommentsFromCSV extends Command
      */
     public function handle()
     {
+        Log::debug('Upload CSV Comments file is running');
         $csvPath = $this->argument('csvPath');
         $handle = fopen($csvPath, "r");
         $header =  fgetcsv($handle, null, ",");
         DB::beginTransaction();
         $rows = 0;
         while (($data = fgetcsv($handle, null, ",",'"','"')) !== FALSE) {
-
             $rows++;
+            Log::channel('single')->debug('Comment create fields from data row number:'.$rows);
             $comment = new Comment();
             $comment->video_id = $data[0];
             $comment->comment_text = $data[1];

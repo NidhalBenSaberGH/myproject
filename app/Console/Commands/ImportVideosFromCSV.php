@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Video;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ImportVideosFromCSV extends Command
 {
@@ -39,6 +40,7 @@ class ImportVideosFromCSV extends Command
      */
     public function handle()
     {
+        Log::debug('Upload CSV Videos file is running');
         $csvPath = $this->argument('csvPath');
         $handle = fopen($csvPath, "r");
         $header =  fgetcsv($handle, null, ",");
@@ -46,6 +48,7 @@ class ImportVideosFromCSV extends Command
         $rows = 0;
         while (($data = fgetcsv($handle, null, ",")) !== FALSE) {
             $rows++;
+            Log::channel('single')->debug('Video create fields from data row number:'.$rows);
             $video = $this->findOrCreateVideo($data[0]);
             $video->video_id = $data[0];
             $video->title = $data[1];
