@@ -1,3 +1,12 @@
+<style type="text/css">
+    .linetd
+    {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+</style>
 <div class="page-header-inner">
     <div class="page-header-inner">
         <div class="navbar-header">

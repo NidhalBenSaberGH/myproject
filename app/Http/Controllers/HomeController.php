@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Video;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -43,6 +44,17 @@ class HomeController extends Controller
             'thumbnail_link' => 'thumbnail_link',
             'date' => 'date'
         ];
+
+        $result = Video::all();
+
+        $final = [
+            'draw' => 1,
+            'recordsTotal'=> Video::all()->count(),
+            'recordsFiltered' => Video::all()->count(),
+            'data'=> $result
+        ];
+
+        return response()->json($final);
 
     }
 }

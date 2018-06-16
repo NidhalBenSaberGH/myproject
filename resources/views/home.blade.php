@@ -18,66 +18,114 @@
                     <br><br>
                     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
                     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-                    <script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
-                    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                    <script src="//cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"></script>
+                    <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 
 
-                    <div class='container'>
-                        <table id="video-grid"  class="display" width="100%">
-                            <thead>
-                            <tr>
-                                <th>&nbsp;Video ID</th>
-                                <th>&nbsp; Video Title</th>
-                                <th>&nbsp; Channel Title</th>
-                                <th>&nbsp; Category ID</th>
-                                <th>&nbsp; Tags</th>
-                                <th>&nbsp; Views</th>
-                                <th>&nbsp; Likes</th>
-                                <th>&nbsp; Dislikes</th>
-                                <th>&nbsp; Total Comment </th>
-                                <th>&nbsp; thumbnail link</th>
-                                <th>&nbsp; Date</th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th>&nbsp;Video ID</th>
-                                <th>&nbsp; Video Title</th>
-                                <th>&nbsp; Channel Title</th>
-                                <th>&nbsp; Category ID</th>
-                                <th>&nbsp; Tags</th>
-                                <th>&nbsp; Views</th>
-                                <th>&nbsp; Likes</th>
-                                <th>&nbsp; Dislikes</th>
-                                <th>&nbsp; Total Comment </th>
-                                <th>&nbsp; thumbnail link</th>
-                                <th>&nbsp; Date</th>
-                            </tr>
-                            </tfoot>
-                        </table>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                            <table id="video-grid"  class="display table table-striped table-bordered" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Video ID</th>
+                                    <th>Video Title</th>
+                                    <th>Channel Title</th>
+                                    <th>Category ID</th>
+                                    <th>Tags</th>
+                                    <th>Views</th>
+                                    <th>Likes</th>
+                                    <th>Dislikes</th>
+                                    <th>Total Comment </th>
+                                    <th>thumbnail link</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
                         <script>
                             $(document).ready(function() {
-                                $('#video-grid').DataTable( {
+                                var table = $('#video-grid').DataTable( {
                                     "processing": true,
-                                    "serverSide": true,
+                                    "serverSide": false,
+                                    "scrollY":"500px",
+                                    "bAutoWidth" : false,
+                                    "sScrollX":"100%",
+                                    "sScrollXInner": "99%",
+                                    "paging":true,
+                                    "initComplete": function( settings, json ) {
+                                        if(typeof table !=="undefined"){
+                                            console.log("===> ")
+                                           // table.columns.adjust().draw();
+                                        }
+                                    },
                                     "ajax": {
-                                        "url": "/admin/home/datatable",
-                                        "type": "POST"
+                                        "url": "{{ route('admin.home.datatable') }}",
+                                        "type": "GET"
                                     },
                                     "columns": [
-                                        { "data": "video_id" },
-                                        { "data": "title" },
-                                        { "data": "channel_title" },
-                                        { "data": "category_id" },
-                                        { "data": "tags" },
-                                        { "data": "views" },
-                                        { "data": "likes" },
-                                        { "data": "dislikes" },
-                                        {"data": "comment_total"},
-                                        { "data": "thumbnail_link" },
-                                        { "data": "date"}
+                                        {
+                                            "data" : "video_id" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "title" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "channel_title" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "category_id" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "tags" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "views" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "likes" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "dislikes" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "comment_total" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "thumbnail_link" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                                $(td).html('');
+                                                $(td).html('<img src="'+cellData+'" width="50" height="50"/>');
+
+                                            }
+                                        },
+                                        {
+                                            "data" : "date" , "ClassName":"linetd" , "createdCell" : function (td,cellData,rowData,row,col) {
+
+                                            }
+                                        }
                                     ]
-                                } );
+                                } ).fnAdjustColumnSizing( false );
                             } );
                         </script>
                     </div>

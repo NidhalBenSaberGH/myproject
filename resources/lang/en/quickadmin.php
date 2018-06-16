@@ -116,6 +116,12 @@ return [
         ],
     ],
 
+    'jobs' => [
+        'title' => 'Jobs',
+        'fields' => [
+        ],
+    ],
+
 	'qa_create' => 'Create',
 	'qa_save' => 'Save',
 	'qa_edit' => 'Edit',

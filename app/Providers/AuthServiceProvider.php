@@ -128,5 +128,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('upload_access', function ($user) {
             return in_array($user->role_id, [1, 2]);
         });
+
+        // Auth gates for: Jobs
+        Gate::define('jobs_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
     }
 }

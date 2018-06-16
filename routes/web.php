@@ -54,4 +54,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('/upload', ['uses' => 'Admin\UploadController@create', 'as' => 'upload.create']);
     Route::post('/upload/store', ['uses' => 'Admin\UploadController@store', 'as' => 'upload.store']);
 
+    Route::get('/jobs', ['uses' => 'Admin\JobsController@index', 'as' => 'jobs.index']);
+    Route::get('/datatable', ['uses' => 'homeController@datatable', 'as' => 'home.datatable']);
+
 });
