@@ -7,18 +7,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" charset="utf-8"></script>
         <div class="col-md-10">
-            <canvas id="canvas" height="280" width="600"></canvas>
+            <canvas id="canvas" height="500" width="600"></canvas>
 
             <script>
                 var url = "{{url('admin/comment_replies/chart')}}";
-                var Video_id = [];
+                var Title = [];
                 var Replies = [];
                 var colortab=[];
 
                 $(document).ready(function(){
                     $.get(url, function(response){
                         response.forEach(function(data){
-                            Video_id.push(data.video_id);
+                            Title.push(data.video.title);
                             Replies.push(data.replies);
                             colortab.push("rgb(" +  Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) + ")");
                         });
@@ -26,15 +26,20 @@
                         var myChart = new Chart(ctx, {
                             type: 'pie',
                             data: {
-                                labels:Video_id,
+                                labels:Title,
                                 datasets: [{
-                                    label: 'Comment Replies by video ID',
+                                    label: 'Comment Replies by video Title',
                                     data: Replies,
                                     borderWidth: 1,
                                     backgroundColor: colortab
                                 }]
                             },
                             options: {
+                                title: {
+                                    display: true,
+                                    fontSize: 24,
+                                    text: 'Best 10 comment have replies'
+                                },
                                 scales: {
                                     yAxes: [{
                                         ticks: {

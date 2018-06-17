@@ -14,8 +14,7 @@ class CreateVideosTable extends Migration
     public function up()
     {
         Schema::create('videos', function (Blueprint $table) {
-            $table->increments('id');
-
+            $table->integer('id');
             $table->string('video_id')->unique()->index();
             $table->string('title');
             $table->string('channel_title');
@@ -29,7 +28,14 @@ class CreateVideosTable extends Migration
             $table->string('date');
 
             $table->timestamps();
+
+            $table->primary(['id','video_id']);
         });
+
+        Schema::table('videos', function (Blueprint $table) {
+            $table->integer('id', true, false)->change();
+        });
+
     }
 
     /**

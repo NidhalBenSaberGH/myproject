@@ -22,6 +22,6 @@ class Video extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment', 'video_id');
+        return $this->hasMany('App\Comment', 'video_id', 'video_id');
     }
 }
