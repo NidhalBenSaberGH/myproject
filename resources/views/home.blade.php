@@ -28,16 +28,16 @@
                             <table id="video-grid"  class="display table table-striped table-bordered" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Video ID</th>
-                                    <th>Video Title</th>
-                                    <th>Channel Title</th>
-                                    <th>Category ID</th>
+                                    <th style="white-space:nowrap">Video ID</th>
+                                    <th style="white-space:nowrap">Video Title</th>
+                                    <th style="white-space:nowrap">Channel Title</th>
+                                    <th style="white-space:nowrap">Category ID</th>
                                     <th>Tags</th>
                                     <th>Views</th>
                                     <th>Likes</th>
                                     <th>Dislikes</th>
-                                    <th>Total Comment </th>
-                                    <th>thumbnail link</th>
+                                    <th style="white-space:nowrap">Total Comment </th>
+                                    <th style="white-space:nowrap">thumbnail link</th>
                                     <th>Date</th>
                                 </tr>
                                 </thead>

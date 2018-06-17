@@ -155,14 +155,14 @@
                     <span class="title">@lang('quickadmin.upload.title')</span>
                 </a>@endcan
             </li>
-
+            <!--
             <li>@can('jobs_access')
-                    <a href="{{ route('admin.jobs.index') }}">
+                    <a href="{{route('admin.jobs.index') }}">
                         <i class="fa fa-tasks"></i>
                         <span class="title">@lang('quickadmin.jobs.title')</span>
                     </a>@endcan
             </li>
-
+            -->
             
 
             
