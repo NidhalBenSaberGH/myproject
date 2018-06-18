@@ -33,4 +33,4 @@ Open the project from the url:
 
            Note: You should upload videos before comments to prevent Error related to Foreign key constraint between Videos and comments tables.
            
-           <center><h3>ENJOY ...</h3><center> 
+           ENJOY ... 
