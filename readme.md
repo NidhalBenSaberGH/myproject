@@ -31,6 +31,6 @@ Open the project from the url:
                 - php artisan kpeiz:import-videos "Path_to_the_csv_videos_file"<br>
                 - php artisan kpeiz:import-comments "Path_to_the_csv_comments_file"<br>
 
-           <p>Note: You should upload videos before comments to prevent Error related to Foreign key constraint between Videos and                     comments tables.</p>
+           Note: You should upload videos before comments to prevent Error related to Foreign key constraint between Videos and                      comments tables.
            
            Enjoy ... 
