@@ -7,9 +7,9 @@
 <h3>To get started, download or Clone the project,</h3>
 <p>
     install the dependencies:
-    composer install
-    php artisan migarte
-    php artisan migarte --seed
+    composer install<br>
+    php artisan migarte<br>
+    php artisan migarte --seed<br>
 </p>
 <p>
 Open the project from the url:
@@ -23,8 +23,8 @@ Open the project from the url:
  You can see from the home Page of dashboard a datatable that display all details from the "videos" table
  and in the sidebar you have many others options for :</p>
         - Users managements: Users & Rules Crud<br>
-        - Generate reports, And yiu can find many nested options for reports from "Videos" and "Comments" tables.<br>
-        - Uplaod CSV file: from here you can upload the csv file for videos and comments You should run in the console the command:<br>
+        - Generate reports, And you can find many nested options for reports from "Videos" and "Comments" tables.<br>
+        - Upload CSV file: from here you can upload the csv file for videos and comments You should run in the console the command:<br>
             "php artisan queue:work --tries=3"<br>
             and when you click upload there is a jobs started In background that execute the processus of uploading data in the                       Database from the csv file.<br>
             Or you can uploaded directly from the console by running the commands:<br>
